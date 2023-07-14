@@ -89,32 +89,43 @@ void modificarDatosMascota(char *ID, char *NOMBRE, char *TIPO, char *EDAD, char 
 	printf("d) Edad\n");
 	printf("e) Familiar\n");
 	scanf(" %c", &opcion);
-	
+	FILE *archivo = fopen("mascota.txt", "r+");
+	if (archivo == NULL) {
+		printf("No se pudo abrir el archivo.\n");
+		return;
+	}
 	switch (opcion) {
 	case 'a':
 		printf("Nuevo ID: ");
 		scanf("%s", ID);
+		fprintf(archivo, "ID de la mascota: %s\n", ID);
 		break;
 	case 'b':
 		printf("Nuevo Nombre: ");
 		scanf("%s", NOMBRE);
+		fprintf(archivo, "Nombre de la mascota: %s\n", NOMBRE);
 		break;
 	case 'c':
 		printf("Nuevo Tipo: ");
 		scanf("%s", TIPO);
+		fprintf(archivo, "Tipo: %s\n", TIPO);
 		break;
 	case 'd':
 		printf("Nueva Edad: ");
 		scanf("%s", EDAD);
+		fprintf(archivo, "Edad: %s\n", EDAD);
 		break;
 	case 'e':
 		printf("Nuevo Familiar: ");
 		scanf("%s", FAMILIAR);
+		fprintf(archivo, "Nombre del dueño: %s\n", FAMILIAR);
 		break;
 	default:
 		printf("Opción inválida.\n");
 		break;
 	}
+	
+	fclose(archivo);
 }
 
 int main() {
@@ -143,7 +154,7 @@ int main() {
 		switch (SN) {
 		case 'a': {
 			FILE *f1;
-			f1 = fopen("mascota.txt", "a");
+			f1 = fopen("mascota.txt", "w");
 			
 			if (f1 == NULL) {
 				printf("No se pudo abrir el archivo.\n");
@@ -258,4 +269,7 @@ int main() {
 	
 	return 0;
 }
+
+
+
 
