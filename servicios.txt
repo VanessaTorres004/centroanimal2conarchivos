@@ -1,0 +1,6 @@
+1,peluqueria,baño,corte de pelo y uñas,15
+2,veterinario,chequeo general,20
+3,vacunacion,vacunas,10
+4,desparacitacion,se desparacita al animal,18
+5,hotel,se cuida al animal x noche,20
+//nombrar a este archivo "servicios.txt", guardar en la misma ruta del programa y guardar en todos los archivos
